@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="org.board.mappers.board.BoardMapper">
+	
+		<insert id="create">
+		
+			INSERT INTO tb_board (
+				title
+				, content
+				, writer
+				
+			) VALUES (
+				 #{ title }
+				, #{ content }
+				, #{ writer }
+				
+			)
+			
+		</insert>
+		
+		<select id="read" resultType="boardVO">
+		
+			SELECT 
+				b_no, title, content, writer, regdate, viewcnt
+			FROM 
+				tb_board
+			WHERE 
+				b_no = #{ b_no }
+			 
+		</select>
+		
+		<update id="update">
+		
+			UPDATE 
+				tb_board
+			SET
+				title = #{ title }
+				, content = #{ content }
+			WHERE
+				b_no = #{ b_no }
+				 
+		</update>
+		
+		<delete id="delete">
+		
+			DELETE FROM
+				tb_board
+			WHERE
+				b_no = #{ b_no }
+				
+		</delete>
+		
+		<select id="listAll" resultType="boardVO">
+		
+			<![CDATA[
+				SELECT 
+					b_no
+					, title
+					, content
+					, writer
+					, regdate
+					, viewcnt
+				FROM 
+					tb_board
+				WHERE
+					b_no > 0
+				ORDER BY 
+					b_no DESC
+					, regdate DESC
+			]]>
+		</select>
+		
+		<select id="listPaging" resultType="boardVO">
+		
+			<![CDATA[
+				SELECT 
+					b_no
+					, title
+					, content
+					, writer
+					, regdate
+					, viewcnt
+				FROM 
+					tb_board
+				WHERE
+					b_no > 0
+				ORDER BY 
+					b_no DESC
+					, regdate DESC
+				LIMIT #{page}, 10
+			]]>
+		
+		</select>
+		
+		<select id="listCriteria" resultType="boardVO">
+		
+			<![CDATA[
+				SELECT 
+					b_no
+					, title
+					, content
+					, writer
+					, regdate
+					, viewcnt
+				FROM 
+					tb_board
+				WHERE
+					b_no > 0
+				ORDER BY 
+					b_no DESC
+					, regdate DESC
+				LIMIT #{pageStart}, #{perPageNum}
+			]]>
+		
+		</select>
+		
+		<select id="countBoards" resultType="int">
+			
+			
+			<![CDATA[
+				SELECT 
+					COUNT(b_no)
+				FROM 
+					tb_board
+				WHERE
+					b_no > 0
+			]]>
+			
+		</select>
+		
+		
+		
+			<sql id="search">
+		 	<if test="searchType != null" > 
+			   <if test="searchType == 't'.toString()">
+			     and title like CONCAT('%', #{keyword}, '%')
+			   </if>
+			   <if test="searchType == 'c'.toString()">
+			     and content like CONCAT('%', #{keyword}, '%')
+			   </if>
+			   <if test="searchType == 'w'.toString()">
+			     and writer like CONCAT('%', #{keyword}, '%')
+			   </if>     
+			   <if test="searchType == 'tc'.toString()">
+			     and ( title like CONCAT('%', #{keyword}, '%') OR content like CONCAT('%', #{keyword}, '%'))
+			   </if>        
+			   <if test="searchType == 'cw'.toString()">
+			     and ( content like CONCAT('%', #{keyword}, '%') OR writer like CONCAT('%', #{keyword}, '%'))
+			   </if>        
+			   <if test="searchType == 'tcw'.toString()">
+			     and (   title like CONCAT('%', #{keyword}, '%') 
+			           OR 
+			             content like CONCAT('%', #{keyword}, '%') 
+			           OR 
+			             writer like CONCAT('%', #{keyword}, '%'))
+			   </if>              
+			 </if>  
+			</sql>
+			
+			<select id="listSearch" resultMap="BoardResultMap">
+		
+			<![CDATA[
+			SELECT
+				*
+			FROM
+				tb_board
+			WHERE
+				b_no > 0
+			]]>
+				<include refid="search" />
+			<![CDATA[
+				ORDER BY b_no DESC
+				, regdate DESC
+				LIMIT
+					#{pageStart}, #{perPageNum}
+			]]>
+		
+		</select>
+		
+		<select id="countSearchBoards" resultType="int">
+		
+			<![CDATA[
+				SELECT
+					COUNT(b_no)
+				FROM
+					tb_board
+				WHERE
+					b_no > 0
+			]]>
+			<include refid="search" />
+		
+		</select>
+		
+		<resultMap type="boardVO" id="BoardResultMap">
+			<id property="b_no" column="b_no"/>
+			<result property="title" column="title"/>
+			<result property="content" column="content"/>
+			<result property="writer" column="writer"/>
+			<result property="regDate" column="regdate"/>
+			<result property="viewCnt" column="viewcnt"/>
+		</resultMap>
+		
+	</mapper>
