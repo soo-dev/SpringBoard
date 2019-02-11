@@ -194,13 +194,31 @@
 		
 		</select>
 		
+		<update id="updateReplyCnt">
+		
+			update tb_board 
+ 			set replycnt = 
+ 			
+ 			replycnt + #{amount}	where bno = #{bno}
+		
+		</update>
+		
+		<update id="updateViewcnt">
+		
+			UPDATE tb_board
+			SET viewcnt = viewcnt + 1
+			WHERE b_no = #{b_no}
+		
+		</update>
+		
 		<resultMap type="boardVO" id="BoardResultMap">
 			<id property="b_no" column="b_no"/>
 			<result property="title" column="title"/>
 			<result property="content" column="content"/>
 			<result property="writer" column="writer"/>
 			<result property="regDate" column="regdate"/>
-			<result property="viewCnt" column="viewcnt"/>
+			<result property="viewcnt" column="viewcnt"/>
+			<result property="replycnt" column="replycnt"/>
 		</resultMap>
 		
 	</mapper>

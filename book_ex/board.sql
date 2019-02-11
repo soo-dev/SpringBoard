@@ -11,3 +11,25 @@ CREATE TABLE tb_board (
 )
 
 SELECT * FROM tb_board order by b_no desc
+
+CREATE TABLE `tb_reply` (
+  `rno` int(11) NOT NULL AUTO_INCREMENT,
+  `bno` int(11) NOT NULL DEFAULT '0',
+  `replytext` varchar(1000) NOT NULL,
+  `regdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `replyer` varchar(50) NOT NULL,
+  PRIMARY KEY (`rno`),
+  KEY `fk_board` (`bno`),
+  CONSTRAINT `fk_b` FOREIGN KEY (`bno`) REFERENCES `tb_board` (`b_no`)
+) 
+
+drop table tb_reply
+
+-- 댓글 갯수 컬럼
+ALTER TABLE tb_board ADD COLUMN replycnt int DEFAULT 0;
+
+-- 댓글 갯수와 rno의 개수 맞춰주기
+update tb_board set replycnt = (select count(rno) from tb_reply where bno = tb_board.b_no)where b_no > 0;
+
+

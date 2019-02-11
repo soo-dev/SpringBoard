@@ -51,7 +51,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${path}/reply/test"><i class="fa fa-comment"></i> 댓글 </a></li>
+                    <li><a href="${path}/reply/test"><i class="fa fa-comment"></i> Ajax 댓글 </a></li>
                     <li><a href="${path}/file/form/uploadPage"><i class="fa fa-file"></i> 파일 업로드(Form)</a></li>
                     <li><a href="${path}/file/ajax/uploadPage"><i class="fa fa-file"></i> 파일 업로드(Ajax Drop)</a></li>
                     <li><a href="${path}/interceptor/doA"><i class="fa fa-mail-forward"></i> 인터셉터</a></li>

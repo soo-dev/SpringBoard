@@ -15,7 +15,12 @@ public class BoardVO {
 	
 	private Date regDate;
 	
-	private int viewCnt;
+	private int viewcnt;
+	
+	private int replycnt;
+	
+	private String[] files;
+	private int filecnt;
 
 	public Integer getB_no() {
 		return b_no;
@@ -57,12 +62,45 @@ public class BoardVO {
 		this.regDate = regDate;
 	}
 
-	public int getViewCnt() {
-		return viewCnt;
+	
+	
+	public int getViewcnt() {
+		return viewcnt;
 	}
 
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
+	}
+
+	public int getReplycnt() {
+		return replycnt;
+	}
+
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+
+	
+	
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+		
+		
+		// 스스로 첨부파일 개수의 상태를 가질 수 있게 해줌
+		// 외부에서 setFiles() 호출하여 게시글의 첨부파일 개수를 넣어주지 않아도 된다.
+		setFilecnt(files.length);
+	}
+
+	public int getFilecnt() {
+		return filecnt;
+	}
+
+	public void setFilecnt(int filecnt) {
+		this.filecnt = filecnt;
 	}
 
 	@Override
