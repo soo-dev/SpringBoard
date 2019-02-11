@@ -1,4 +1,4 @@
-package org.board;
+package org.board.dao;
 
 import java.util.List;
 
