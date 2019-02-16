@@ -2,10 +2,6 @@
 
 
 
-
-# 첫번째 포트폴리오
-
-
 ## SpringBoard
 	- Board with Spring framwork
 
