@@ -2,6 +2,7 @@ package org.board.persistence;
 
 import java.util.HashMap;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -21,9 +22,9 @@ public class ReplyDAOImpl implements ReplyDAO {
 	private static String namespace = "org.board.mappers.reply.ReplyMapper";
 
 	@Override
-	public List<ReplyVO> list(Integer bno) throws Exception {
+	public List<ReplyVO> list(Integer b_no) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(namespace + ".list", bno);
+		return session.selectList(namespace + ".list", b_no);
 	}
 
 	@Override
@@ -45,26 +46,26 @@ public class ReplyDAOImpl implements ReplyDAO {
 	}
 
 	@Override
-	public List<ReplyVO> listPage(Integer bno, Criteria cri) throws Exception {
+	public List<ReplyVO> listPage(Integer b_no, Criteria cri) throws Exception {
 
 		Map<String, Object> paramMap = new HashMap<>();
 		
-		paramMap.put("bno", bno);
+		paramMap.put("b_no", b_no);
 		paramMap.put("cri", cri);
 		
 		return session.selectList(namespace + ".listPage", paramMap);
 	}
 
 	@Override
-	public int count(Integer bno) throws Exception {
+	public int count(Integer b_no) throws Exception {
 		
-		return session.selectOne(namespace + ".count", bno);
+		return session.selectOne(namespace + ".count", b_no);
 	}
 
 	@Override
-	public int getBno(Integer rno) throws Exception {
+	public int getB_no(Integer rno) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(namespace + ".getBno", rno);
+		return session.selectOne(namespace + ".getB_no", rno);
 	}
 
 }

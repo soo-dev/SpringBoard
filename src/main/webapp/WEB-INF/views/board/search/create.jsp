@@ -11,6 +11,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 <%@ include file="../../include/head.jsp"%>
+<style>
+
+	.fileDrop {
+		width:100%;
+		height:200px;
+		border:2px dotted #0b58a2;
+	}
+</style>
 
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -55,6 +63,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								<label for="writer">작성자</label>
 								<input class="form-control" id="writer" name="writer" >
 							</div>
+							
+							<!-- 첨부파일 영역 추가 -->
+							<div class = "form-group">
+								<div class="fileDrop">
+								<br />
+								<br />
+								<br />
+								<br />
+								<p class="text-center"><i class="fa fa-paperclip"></i>첨부파일을 드래그 해주세요.</p>
+								</div>
+							</div>
+							
 						</div>
 						<div class="box-footer">
 							<button type = "button" class="btn btn-primary"><i class="fa fa-list"></i>목록</button>
@@ -78,6 +98,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	</div>
 	<!-- ./wrapper -->
 	<%@ include file="../../include/plugin_js.jsp"%>
+
+
+
+	
+
 
 </body>
 </html>

@@ -10,17 +10,17 @@
   *
   from
   tb_reply
-  where bno = #{bno}
+  where b_no = #{b_no}
   order by rno desc;  
  </select>
  
- <select id="getBno" resultType="int">
- 	select bno from tb_reply where rno = #{rno}
+ <select id="getB_no" resultType="int">
+ 	select b_no from tb_reply where rno = #{rno}
  </select>
  
  <insert id="create">
-  insert into tb_reply(bno,replytext,replyer)
-  values(#{bno},#{replytext},#{replyer})
+  insert into tb_reply(b_no,replytext,replyer)
+  values(#{b_no},#{replytext},#{replyer})
  </insert>
  
  <update id="update">
@@ -35,13 +35,13 @@
  
  <select id="listPage" resultType="ReplyVO">
  
- 	select * from tb_reply where bno = #{bno} order by rno desc limit #{cri.pageStart}, #{cri.perPageNum}
+ 	select * from tb_reply where b_no = #{b_no} order by rno desc limit #{cri.pageStart}, #{cri.perPageNum}
  
  </select>
  
  <select id="count" resultType="int">
  
- 	select count(bno) from tb_reply where bno =#{bno}
+ 	select count(b_no) from tb_reply where b_no =#{b_no}
  
  </select>
 

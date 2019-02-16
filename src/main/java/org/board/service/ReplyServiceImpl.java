@@ -29,13 +29,13 @@ public class ReplyServiceImpl implements ReplyService {
 		// TODO Auto-generated method stub
 		
 		replyDAO.create(vo);
-		boardDAO.updateReplyCnt(vo.getBno(), 1);
+		boardDAO.updateReplyCnt(vo.getB_no(), 1);
 	}
 
 	@Override
-	public List<ReplyVO> listReply(Integer bno) throws Exception {
+	public List<ReplyVO> listReply(Integer b_no) throws Exception {
 		// TODO Auto-generated method stub
-		return replyDAO.list(bno);
+		return replyDAO.list(b_no);
 	}
 
 	@Override
@@ -48,22 +48,22 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void removeReply(Integer rno) throws Exception {
 		// TODO Auto-generated method stub
-		int bno = replyDAO.getBno(rno);
+		int b_no = replyDAO.getB_no(rno);
 		
 		replyDAO.delete(rno);
-		boardDAO.updateReplyCnt(bno, -1);
+		boardDAO.updateReplyCnt(b_no, -1);
 	}
 
 	@Override
-	public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) throws Exception {
+	public List<ReplyVO> listReplyPage(Integer b_no, Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
-		return replyDAO.listPage(bno, cri);
+		return replyDAO.listPage(b_no, cri);
 	}
 
 	@Override
-	public int count(Integer bno) throws Exception {
+	public int count(Integer b_no) throws Exception {
 		// TODO Auto-generated method stub
-		return replyDAO.count(bno);
+		return replyDAO.count(b_no);
 	}
 
 }

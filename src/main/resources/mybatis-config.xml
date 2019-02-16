@@ -9,6 +9,7 @@
 	<typeAliases>
 		<typeAlias type="org.board.domain.BoardVO" alias="boardVO" />
 		<typeAlias type="org.board.domain.ReplyVO" alias="replyVO" />
+		<typeAlias type="org.board.domain.UserVO" alias="userVO" />
 	</typeAliases>
 
 

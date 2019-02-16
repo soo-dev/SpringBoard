@@ -199,7 +199,7 @@
 			update tb_board 
  			set replycnt = 
  			
- 			replycnt + #{amount}	where bno = #{bno}
+ 			replycnt + #{amount}	where b_no = #{b_no}
 		
 		</update>
 		

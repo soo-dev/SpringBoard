@@ -16,3 +16,4 @@
 <script src="${path}/resources/bower_components/lightbox/js/lightbox.js"></script>
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<!-- lightbox js -->

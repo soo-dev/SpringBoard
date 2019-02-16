@@ -1,6 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${ pageContext.request.contextPath }" />
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 
@@ -55,7 +55,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</div>
 						<div class="box-footer">
 							<form role="form" method="post">
-								<input type="hidden" name="b_no" value="${ board.b_no }" /> <input
+								<input type="hidden" name="b_no" value="${ board.b_no }" /> 
+								<input
 									type="hidden" name="page" value="${searchCri.page}"> <input
 									type="hidden" name="perPageNum" value="${searchCri.perPageNum}">
 								<input type="hidden" name="searchType"
@@ -65,15 +66,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<button type="submit" class="btn btn-primary listBtn">
 								<i class="fa fa-list"></i>목록
 							</button>
-							<div class="pull-right">
-								<button type="submit" class="btn btn-warning modBtn">
-									<i class="fa fa-edit"></i>수정
-								</button>
-								<button type="submit" class="btn btn-dager delBtn">
-									<i class="fa fa-trash"></i>삭제
-								</button>
-							</div>
-
+							<c:if test="${ login.user_id == board.writer }">
+								<div class="pull-right">
+									<button type="submit" class="btn btn-warning modBtn">
+										<i class="fa fa-edit"></i>수정
+									</button>
+									<button type="submit" class="btn btn-dager delBtn">
+										<i class="fa fa-trash"></i>삭제
+									</button>
+								</div>
+							</c:if>
 						</div>
 						<div class="box box-warning">
 							<div class="box-header with-border">
@@ -81,29 +83,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									class="fa fa-pencil margin-r-5"></i> 댓글 쓰기</a>
 							</div>
 							<div class="box-body">
+								<c:if test="${not empty login}">
+									<form>
+										
+										<div class="form-group">
 
-								<form class="form-horizontal">
-									<div class="form-group margin">
-										<div class="col-sm-10">
 											<textarea class="form-control" id="newReplytext" rows="3"
 												placeholder="댓글의 내용을 입력해주세요." style="resize: none"></textarea>
 										</div>
-									
-										<div class="col-sm-2" >
-											<input class="form-control" id="newReplyer" type="text" placeholder="댓글 작성자명.">
+
+										<div class="col-sm-2" hidden>
+											<input class="form-control" id="newReplyer" type="text"
+												value="${ login.user_id }" readonly="readonly">
 										</div>
-										<hr>
-										<div class="col-sm-2">
-											<button type="button"
-												class="btn btn-default btn-block replyAddBtn">
-												<i class="fa fa-save"></i> 댓글 저장
-											</button>
-										</div>
-									</div>
-								</form>
+
+
+										<button type="button"
+											class="btn btn-default btn-block replyAddBtn">
+											<i class="fa fa-save"></i> 댓글 저장
+										</button>
+									</form>
+								</c:if>
+								<c:if test="${empty login}">
+									<a href="${path}/user/login" class="btn btn-default btn-block"
+										role="button"> <i class="fa fa-edit"></i>로그인 한 사용자만 댓글 등록이
+										가능합니다.
+									</a>
+								</c:if>
 							</div>
 						</div>
-
 						<div class="box box-success collapsed-box">
 							<%--댓글 유무 / 댓글 갯수 / 댓글 펼치기, 접기--%>
 							<div class="box-header with-border">
@@ -127,10 +135,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								</div>
 							</div>
 						</div>
-						
-						
-						
-
 						<%--댓글 수정 modal 영역--%>
 						<div class="modal fade" id="modModal">
 							<div class="modal-dialog">
@@ -182,17 +186,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								</div>
 							</div>
 						</div>
-
 					</div>
 			</section>
-			<!-- /.content -->
 		</div>
-		<!-- /.content-wrapper -->
+
+
+
+
 
 		<!-- Main Footer -->
 		<%@ include file="../../include/main_footer.jsp"%>
 
+
 	</div>
+
+	<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+
 	<!-- ./wrapper -->
 	<%@ include file="../../include/plugin_js.jsp"%>
 
@@ -206,6 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <span class="username">
                 <%--작성자 이름--%>
                 <a href="#">{{replyer}}</a>
+				{{#eqReplyer replyer}}
                 <%--댓글 삭제 버튼--%>
                 <a href="#" class="pull-right btn-box-tool replyDelBtn" data-toggle="modal" data-target="#delModal">
                     <i class="fa fa-times"> 삭제</i>
@@ -214,6 +226,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="pull-right btn-box-tool replyModBtn" data-toggle="modal" data-target="#modModal">
                     <i class="fa fa-edit"> 수정</i>
                 </a>
+				{{/eqReplyer}}
             </span>
             <%--댓글 작성일자--%>
             <span class="description">{{prettifyDate regdate}}</span>
@@ -226,12 +239,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 
 	<script>
+	
     $(document).ready(function () {
 
-     
-
-        var bno = "${board.b_no}";  // 현재 게시글 번호
+		var b_no = "${board.b_no}";  // 현재 게시글 번호
+        var replyer = "${login.user_id}";
         var replyPageNum = 1; // 댓글 페이지 번호 초기화
+        
+        Handlebars.registerHelper("eqReplyer", function(replytext, block) {
+        	var accum = "";
+        	if(replyer === "${login.user_id}"){
+        		accum += block.fn();
+        	}
+        	return accum;
+        });
         
         Handlebars.registerHelper("escape", function(replytext) {
         	var text = Handlebars.Utils.escapeExpression(replytext);
@@ -255,9 +276,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         	
         	return year + "-" + month + "-" + date + " " + hours + ":" + minutes;
         });
+        
+ 	
 
         // 댓글 목록 함수 호출
-        getReplies("/replies/" + bno + "/" + replyPageNum);
+        getReplies("/replies/" + b_no + "/" + replyPageNum);
         
         function getReplies(repliesUri) {
         
@@ -320,7 +343,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $(".pagination").on("click", "li a", function (event) {
             event.preventDefault();
             replyPageNum = $(this).attr("href");
-            getReplies("/replies/" + bno + "/" + replyPageNum);
+            getReplies("/replies/" + b_no + "/" + replyPageNum);
         });
 
         // 댓글 저장 버튼 클릭 이벤트
@@ -342,7 +365,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 },
                 dataType: 'text',
                 data: JSON.stringify({
-                    bno: bno,
+                    b_no: b_no,
                     replyer: replyer,
                     replytext: replytext
                 }),
@@ -351,7 +374,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     if (result === 'success') {
                         alert("댓글이 등록되었습니다.");
                         replyPageNum = 1;  // 페이지 1로 초기화
-                        getReplies("/replies/" + bno + "/" + replyPageNum); // 댓글 목록 호출
+                        getReplies("/replies/" + b_no + "/" + replyPageNum); // 댓글 목록 호출
                         replytextObj.val("");   // 댓글 입력창 공백처리
                         replyerObj.val("");   // 댓글 입력창 공백처리
                     }
@@ -407,7 +430,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     console.log("result : " + result);
                     if (result === "success") {
                         alert("댓글이 수정되었습니다.");
-                        getReplies("/replies/" + bno + "/" + replyPageNum); // 댓글 목록 호출
+                        getReplies("/replies/" + b_no + "/" + replyPageNum); // 댓글 목록 호출
                         $("#modModal").modal("hide"); // modal 창 닫기
                     }
                 }
@@ -429,7 +452,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     console.log("result : " + result);
                     if (result === "success") {
                         alert("댓글이 삭제되었습니다.");
-                        getReplies("/replies/" + bno + "/" + replyPageNum); // 댓글 목록 호출
+                        getReplies("/replies/" + b_no + "/" + replyPageNum); // 댓글 목록 호출
                         $("#delModal").modal("hide"); // modal 창 닫기
                     }
                 }

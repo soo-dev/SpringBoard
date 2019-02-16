@@ -2,6 +2,7 @@ package org.board.service;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.board.domain.BoardVO;
@@ -17,7 +18,9 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Inject
 	private BoardDAO dao;
+	
 
+	@Transactional
 	@Override
 	public void create(BoardVO vo) throws Exception {
 		

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,7 +29,7 @@ public class ReplyController {
 	private ReplyService service;
 	
 	@RequestMapping(value = "", method =  {RequestMethod.GET,RequestMethod.POST} ) 
-	public ResponseEntity<String> register(ReplyVO vo) {
+	public ResponseEntity<String> register(@RequestBody ReplyVO vo) {
 		
 		ResponseEntity<String> entity = null;
 		
@@ -43,15 +44,15 @@ public class ReplyController {
 		return entity;
 	}
 	
-	@RequestMapping(value = "/all/{bno}", method = {RequestMethod.GET, RequestMethod.POST})
-	public ResponseEntity<List<ReplyVO>> list (@PathVariable("bno") Integer bno) {
+	@RequestMapping(value = "/all/{b_no}", method = {RequestMethod.GET, RequestMethod.POST})
+	public ResponseEntity<List<ReplyVO>> list (@PathVariable("b_no") Integer b_no) {
 		
 		ResponseEntity<List<ReplyVO>> entity = null;
 		
 		try {
 
 			entity = new ResponseEntity<>(
-					service.listReply(bno), HttpStatus.OK);
+					service.listReply(b_no), HttpStatus.OK);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,7 +63,7 @@ public class ReplyController {
 	}
 	
 	 @RequestMapping(value = "/{rno}", method = {RequestMethod.GET, RequestMethod.PATCH, RequestMethod.PUT} )
-	  public ResponseEntity<String> update(@PathVariable("rno") Integer rno, ReplyVO vo) {
+	  public ResponseEntity<String> update(@PathVariable("rno") Integer rno, @RequestBody ReplyVO vo) {
 
 	    ResponseEntity<String> entity = null;
 	    try {
@@ -95,8 +96,8 @@ public class ReplyController {
 		return entity;
 	}
 	
-	@RequestMapping(value = "/{bno}/{page}", method = {RequestMethod.GET, RequestMethod.PUT} )
-	public ResponseEntity<Map<String, Object>> listPage (@PathVariable("bno") Integer bno, @PathVariable("page") Integer page) {
+	@RequestMapping(value = "/{b_no}/{page}", method = {RequestMethod.GET, RequestMethod.PUT} )
+	public ResponseEntity<Map<String, Object>> listPage (@PathVariable("b_no") Integer b_no, @PathVariable("page") Integer page) {
 		
 		ResponseEntity<Map<String, Object>> entity = null;
 		
@@ -109,11 +110,11 @@ public class ReplyController {
 			pageMaker.setCri(cri);
 			
 			Map<String, Object> map = new HashMap<String, Object>();
-			List<ReplyVO> list = service.listReplyPage(bno, cri);
+			List<ReplyVO> list = service.listReplyPage(b_no, cri);
 			
 			map.put("list", list);
 			
-			int replyCount = service.count(bno);
+			int replyCount = service.count(b_no);
 			pageMaker.setTotalCount(replyCount);
 			
 			map.put("pageMaker", pageMaker);

@@ -63,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 										</td>
 										<td>${ board.writer }</td>
 										<td><fmt:formatDate value="${ board.regDate }" pattern="yyyy-MM-dd a HH:mm" /></td>
-										<td><span class="badge bg-red">${ board.viewCnt }</span></td>
+										<td><span class="badge bg-red">${ board.viewcnt }</span></td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -108,7 +108,7 @@
 <%@ include file="../include/plugin_js.jsp"%>
 <script>
 
-	var bno=3003;
+	var b_no=3003;
 	var replyPageNum =10;
 	
 	//getReplies();
@@ -117,7 +117,7 @@
 	
 	function getReplies() {
 		
-		$.getJSON("/replies/all/" + bno, function(data) {
+		$.getJSON("/replies/all/" + b_no, function(data) {
 			
 			console.log(data);
 			
@@ -154,7 +154,7 @@
 			},
 			dataType : 'text',
 			data : JSON.stringify({
-				bno : bno,
+				b_no : b_no,
 				replyer : replyer,
 				replytext : replytext
 			}),
@@ -242,7 +242,7 @@
 	// 댓글 목록 페이징 함수
 	 function getRepliesPaging(page) {
 	
-		 $.getJSON("/replies/"+ bno +"/"+  page, function(data) {
+		 $.getJSON("/replies/"+ b_no +"/"+  page, function(data) {
 	        	console.log(data.list);
 				
 				var str="";

@@ -8,7 +8,7 @@ import org.board.domain.ReplyVO;
 
 public interface ReplyDAO {
 
-	public List<ReplyVO> list(Integer bno) throws Exception;
+	public List<ReplyVO> list(Integer b_no) throws Exception;
 	
 	public void create(ReplyVO vo) throws Exception;
 	
@@ -16,10 +16,10 @@ public interface ReplyDAO {
 	
 	public void delete(Integer rno) throws Exception;
 	
-	public List<ReplyVO> listPage(Integer bno, Criteria cri) throws Exception;
+	public List<ReplyVO> listPage(Integer b_no, Criteria cri) throws Exception;
 	
-	public int count(Integer bno) throws Exception;
+	public int count(Integer b_no) throws Exception;
 	
-	public int getBno(Integer rno) throws Exception;
+	public int getB_no(Integer rno) throws Exception;
 	
 }

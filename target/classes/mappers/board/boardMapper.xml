@@ -196,13 +196,14 @@
 		
 		<update id="updateReplyCnt">
 		
-			UPDATE tb_board
-			SET replycnt = replycnt + #{amount}
-			WHERE b_no = #{b_no}
+			update tb_board 
+ 			set replycnt = 
+ 			
+ 			replycnt + #{amount}	where b_no = #{b_no}
 		
 		</update>
 		
-		<update id="updateViewCnt">
+		<update id="updateViewcnt">
 		
 			UPDATE tb_board
 			SET viewcnt = viewcnt + 1
@@ -216,7 +217,7 @@
 			<result property="content" column="content"/>
 			<result property="writer" column="writer"/>
 			<result property="regDate" column="regdate"/>
-			<result property="viewCnt" column="viewcnt"/>
+			<result property="viewcnt" column="viewcnt"/>
 			<result property="replycnt" column="replycnt"/>
 		</resultMap>
 		
