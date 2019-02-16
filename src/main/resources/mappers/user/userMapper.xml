@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="org.board.mappers.user.UserMapper">
+  
+  
+  	<resultMap id="userVOResultMap" type="userVO">
+        <id property="user_id" column="user_id"/>
+        <result property="user_pw" column="user_pw"/>
+        <result property="user_name" column="user_name"/>
+        <result property="user_email" column="user_email"/>
+        <result property="user_join_date" column="user_join_date"/>
+        <result property="user_login_date" column="user_login_date"/>
+        <result property="user_signature" column="user_signature"/>
+        <result property="user_img" column="user_img"/>
+        <result property="user_point" column="user_point"/>
+    </resultMap>
+  
+  	<insert id="register">
+  	
+  		INSERT INTO tb_user (
+  			user_id
+  			, user_name
+  			, user_pw
+  			, user_email
+  		)VALUES(
+  			#{user_id}
+  			, #{user_name}
+  			, #{user_pw}
+  			, #{user_email}
+  		)
+  		
+  	
+  	</insert>
+  	
+  	<select id="login" resultMap="userVOResultMap">
+  	
+  		SELECT
+  		*
+  		FROM
+  			tb_user
+  		WHERE
+  			user_id = #{user_id}
+  	
+  	</select>
+  	
+  	<update id="keepLogin">
+  	
+  		UPDATE tb_user
+  		SET session_key = #{session_id}
+  			, session_limit = #{session_limit}
+  		WHERE user_id = #{user_id} 
+  	
+  	</update>
+  	
+  	<select id="checkUserWithSessionKey" resultMap="userVOResultMap">
+  	
+  		SELECT
+  			*
+  		FROM tb_user
+  		WHERE session_key = #{value}
+  	
+  	</select>
+  
+  </mapper>

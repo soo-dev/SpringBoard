@@ -15,7 +15,11 @@ public class BoardVO {
 	
 	private Date regDate;
 	
-	private int viewCnt;
+	private int viewcnt;
+	
+	private int replycnt;
+	
+	
 
 	public Integer getB_no() {
 		return b_no;
@@ -57,13 +61,25 @@ public class BoardVO {
 		this.regDate = regDate;
 	}
 
-	public int getViewCnt() {
-		return viewCnt;
+	
+	
+	public int getViewcnt() {
+		return viewcnt;
 	}
 
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
 	}
+
+	public int getReplycnt() {
+		return replycnt;
+	}
+
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+
+
 
 	@Override
 	public String toString() {

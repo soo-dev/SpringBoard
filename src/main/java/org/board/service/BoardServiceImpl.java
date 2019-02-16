@@ -2,6 +2,7 @@ package org.board.service;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.board.domain.BoardVO;
@@ -9,13 +10,17 @@ import org.board.domain.Criteria;
 import org.board.domain.SearchCriteria;
 import org.board.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 	
 	@Inject
 	private BoardDAO dao;
+	
 
+	@Transactional
 	@Override
 	public void create(BoardVO vo) throws Exception {
 		
@@ -23,9 +28,11 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer b_no) throws Exception {
 		// TODO Auto-generated method stub
+		dao.updateViewCnt(b_no);
 		return dao.read(b_no);
 	}
 

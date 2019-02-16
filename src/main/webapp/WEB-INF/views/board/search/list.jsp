@@ -62,12 +62,12 @@
                                     <a href="${path}/board/paging/search/read${pageMaker.makeSearch(pageMaker.cri.page)}&b_no=${board.b_no}">
                                             ${board.title}
                                     </a>
-                                   
+                                   <span class="badge bg-teal"><i class="fa fa-comment-o"></i> + ${ board.replycnt }</span>
                                 </td>
                                 <td>${board.writer}</td>
                                 <td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd"/></td>
 
-                                <td><span class="badge bg-red">${board.viewCnt}</span></td>
+                                <td><span class="badge bg-red">${board.viewcnt} </span></td>
                             </tr>
                             </c:forEach>
                             </tbody>

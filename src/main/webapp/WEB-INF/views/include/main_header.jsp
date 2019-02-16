@@ -21,15 +21,15 @@
                 <c:if test="${not empty login}">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/${login.userImg}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">${login.userName}</span>
+                             <img src="/${login.user_img}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">${login.user_name}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
-                                <img src="/${login.userImg}" class="img-circle" alt="User Image">
-                                <p>${login.userName}
+                                <img src="/${login.user_img}" class="img-circle" alt="User Image"> 
+                                <p>${login.user_name}
                                     <small>
-                                        가입일자 : <fmt:formatDate value="${login.userJoinDate}" pattern="yyyy-MM-dd"/>
+                                        가입일자 : <fmt:formatDate value="${login.user_join_date}" pattern="yyyy-MM-dd"/>
                                     </small>
                                 </p>
                             </li>
@@ -62,7 +62,7 @@
                 <c:if test="${empty login}">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="${path}/resources/user/default-user.png" class="user-image" alt="User Image">
+                            <%-- <img src="${path}/resources/user/default-user.png" class="user-image" alt="User Image"> --%>
                             <span class="hidden-xs">회원가입 또는 로그인</span>
                         </a>
                         <ul class="dropdown-menu">
