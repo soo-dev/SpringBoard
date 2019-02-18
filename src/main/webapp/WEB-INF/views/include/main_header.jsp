@@ -6,9 +6,9 @@
     <%-- Logo --%>
     <a href="/" class="logo">
         <%-- mini logo for sidebar mini 50x50 pixels --%>
-        <span class="logo-mini"><b>M</b>B</span>
+        <span class="logo-mini"><b>S</b>P</span>
         <%-- logo for regular state and mobile devices --%>
-        <span class="logo-lg"><b>MVC</b> Board</span>
+        <span class="logo-lg"><b>Soo's</b> PORTFOLIO</span>
     </a>
 
     <%-- Header Navbar --%>
@@ -21,31 +21,19 @@
                 <c:if test="${not empty login}">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                             <img src="/${login.user_img}" class="user-image" alt="User Image">
+                             <img src="${ path }/resources/dist/user/default-user.png" class="user-image" alt="User Image">
                             <span class="hidden-xs">${login.user_name}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
-                                <img src="/${login.user_img}" class="img-circle" alt="User Image"> 
+                                <img src="${ path }/resources/dist/user/default-user.png" class="img-circle" alt="User Image"> 
                                 <p>${login.user_name}
                                     <small>
                                         가입일자 : <fmt:formatDate value="${login.user_join_date}" pattern="yyyy-MM-dd"/>
                                     </small>
                                 </p>
                             </li>
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">게시글</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">추천글</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">북마크</a>
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="${path}/user/info" class="btn btn-default btn-flat"><i

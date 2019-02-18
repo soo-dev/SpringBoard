@@ -18,13 +18,15 @@
             </c:if>
             <c:if test="${not empty login}">
                 <div class="pull-left image">
-                    <img src="/${login.user_img}" class="img-circle" alt="User Image"> 
+                    <img src="${ path }/resources/dist/user/default-user.png"" class="img-circle" alt="User Image"> 
                 </div>
                 <div class="pull-left info">
                     <p>${login.user_name}</p>
                         <%-- Status --%>
                     <a href="#"><i class="fa fa-circle text-success"></i> ONLINE</a>
                 </div>
+                <br />
+                <br />
             </c:if>
         </div>
 
@@ -34,54 +36,28 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <%-- <li class="header">테스트 예제</li>
+            <li class="header">포트폴리오</li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-folder"></i> <span>게시판 예제</span>
+                <a href="#"><i class="fa fa-folder"></i> 
+                	<span>Duck Hunts</span>
+                </a>
+                
+                <a href="#"><i class="fa fa-folder"></i> <span>Spring Board</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${path}/reply/test"><i class="fa fa-comment"></i> Ajax 댓글 </a></li>
-                    <li><a href="${path}/file/form/uploadPage"><i class="fa fa-file"></i> 파일 업로드(Form)</a></li>
-                    <li><a href="${path}/file/ajax/uploadPage"><i class="fa fa-file"></i> 파일 업로드(Ajax Drop)</a></li>
-                    <li><a href="${path}/interceptor/doA"><i class="fa fa-mail-forward"></i> 인터셉터</a></li>
+                    <li><a href="${path}/board/list"><i class="fa fa-pencil"></i> CRUD 게시판 </a></li>
+                    <li><a href="${path}/board/paging/list"><i class="fa fa-pencil"></i> 페이징 게시판 </a></li>
+                    <li><a href="${path}/board/paging/search/list"><i class="fa fa-pencil"></i> 최종 게시판 </a></li>
                 </ul>
-            </li> --%>
-            <li class="header">게시판</li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-edit"></i> <span>게시판(기본)</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                <a href="#"><i class="fa fa-folder"></i> 
+                	<span>JS To Do List</span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="${path}/board/create"><i class="fa fa-pencil"></i> 게시글 쓰기</a></li>
-                    <li><a href="${path}/board/list"><i class="fa fa-list"></i> 게시글 목록</a></li>
-                </ul>
+                
             </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-edit"></i> <span>게시판(페이징)</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="${path}/board/paging/create"><i class="fa fa-pencil"></i> 게시글 쓰기</a></li>
-                    <li><a href="${path}/board/paging/list"><i class="fa fa-list"></i> 게시글 목록</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-edit"></i> <span>게시판(페이징+검색)</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="${path}/board/paging/search/create"><i class="fa fa-pencil"></i> 게시글 쓰기</a></li>
-                    <li><a href="${path}/board/paging/search/list"><i class="fa fa-list"></i> 게시글 목록</a></li>
-                </ul>
-            </li>
+           
 
         </ul>
         <!-- /.sidebar-menu -->
