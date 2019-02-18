@@ -15,7 +15,6 @@
 	<h3>회원가입과 로그인 관련 화면입니다.</h3>
 	<img src="https://user-images.githubusercontent.com/46646408/52951015-0f036c80-33c4-11e9-8dca-951df545cc00.PNG">
 	<img src="https://user-images.githubusercontent.com/46646408/52951017-0f036c80-33c4-11e9-85d7-4336fbb984e9.PNG">
-	<img src="https://user-images.githubusercontent.com/46646408/52951017-0f036c80-33c4-11e9-85d7-4336fbb984e9.PNG">
 	<br>
 	<h3>로그인 후 변경 된 헤더의 프로필 화면입니다.</h3>
 	<img src="https://user-images.githubusercontent.com/46646408/52951019-0f036c80-33c4-11e9-9805-d42dbe1191a2.PNG">
