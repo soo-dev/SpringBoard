@@ -5,10 +5,6 @@
 ## SpringBoard
 	- Board with Spring framwork
 
-### 1) 기본 CRUD 게시판
-### 2) Paging 게시판
-### 3) Search & Reply  게시판
-
 <div>
 	<p>메인 화면입니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52951013-0e6ad600-33c4-11e9-9469-8124113067e7.PNG">
@@ -20,6 +16,8 @@
 	<img src="https://user-images.githubusercontent.com/46646408/52951017-0f036c80-33c4-11e9-85d7-4336fbb984e9.PNG">
 	<p>로그인 후 변경 된 헤더의 프로필 화면입니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52951019-0f036c80-33c4-11e9-9805-d42dbe1191a2.PNG">
+	<p>회원의 정보 페이지입니다.</p>
+	<img src="https://user-images.githubusercontent.com/46646408/52958559-a6be8600-33d7-11e9-8098-6674c68c6b74.PNG">
 	<P>로그아웃 화면입니다.</P>
 	<img src="https://user-images.githubusercontent.com/46646408/52953944-3827fb00-33cc-11e9-9415-cf233cf60fb2.PNG">
 	<p>게시물 CREATE 화면입니다.</p>
