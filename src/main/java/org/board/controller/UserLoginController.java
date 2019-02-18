@@ -30,6 +30,8 @@ public class UserLoginController {
 	@Inject
 	private UserService service;
 	
+	
+	
 	// 로그인 페이지
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String loginGET(@ModelAttribute("dto")LoginDTO dto) throws Exception{

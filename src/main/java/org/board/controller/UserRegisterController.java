@@ -18,20 +18,32 @@ public class UserRegisterController {
 
 	@Inject
 	private UserService service;
-	
-	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String registerGET() throws Exception{
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerGET() throws Exception {
 		return "/user/register";
 	}
-	
+
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(UserVO vo, RedirectAttributes rttr) throws Exception {
 		String hashedPw = BCrypt.hashpw(vo.getUser_pw(), BCrypt.gensalt());
 		vo.setUser_pw(hashedPw);
 		service.register(vo);
 		rttr.addFlashAttribute("msg", "REGISTERED");
-		
+
 		return "redirect:/user/login";
 	}
-	
+
+	// 내 프로필 페이지
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info() throws Exception {
+		return "/user/info";
 	}
+
+	// 내 프로필 수정 페이지
+	@RequestMapping(value = "/infoUpdate", method = RequestMethod.GET)
+	public String infoUpdate() throws Exception {
+		return "/user/infoUpdate";
+	}
+
+}
