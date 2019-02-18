@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<div class="box-header with-border">
 							<h3 class="box-title">제목 : ${ board.title }</h3>
 						</div>
-						<div class="box-body" style="height: 700px">${ board.content }
+						<div class="box-body" style="height: 400px">${ board.content }
 						</div>
 						<div class="box-footer">
 							<div class="user-block">
@@ -77,6 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								</div>
 							</c:if>
 						</div>
+						
 						<div class="box box-warning">
 							<div class="box-header with-border">
 								<a class="link-black text-lg"><i
@@ -458,6 +459,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             });
         });
+      
 		
 		
 		var formObj = $("form[role='form']");
@@ -481,8 +483,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		}); */
 		
 		$(".delBtn").on("click", function() {
-			formObj.attr("action", "/board/paging/search/delete");
-			formObj.submit();
+			var con_test = confirm("정말로 삭제하시겠습니까?");
+			if(con_test == true){
+				formObj.attr("action", "/board/paging/search/delete");
+				formObj.submit();
+			}
+			
 		}); 
 		
 		/* $(".listBtn").on("click", function() {

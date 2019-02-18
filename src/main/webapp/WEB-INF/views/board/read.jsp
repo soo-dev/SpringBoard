@@ -93,9 +93,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		}); 
 		
 		$(".delBtn").on("click", function() {
-			formObj.attr("action", "/board/delete");
-			formObj.submit();
-		}); 
+			var con_test = confirm("정말로 삭제하시겠습니까?");
+			if(con_test == true){
+				formObj.attr("action", "/board/delete");
+				formObj.submit();
+			}
+			
+		});
 		
 		$(".listBtn").on("click", function() {
 			self.location = "/board/list";

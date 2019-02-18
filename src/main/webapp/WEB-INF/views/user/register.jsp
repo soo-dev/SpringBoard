@@ -34,10 +34,6 @@
                 <input type="password" name="user_pw" class="form-control" placeholder="비밀번호">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="비밀번호 확인">
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-            </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
@@ -50,16 +46,6 @@
             </div>
         </form>
 
-        <div class="social-auth-links text-center">
-            <p>- 또는 -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-                <i class="fa fa-facebook"></i> 페이스북 계정으로 가입
-            </a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-                <i class="fa fa-google-plus"></i> 구글 계정으로 가입
-            </a>
-        </div>
-
         <a href="${path}/user/login" class="text-center">로그인</a>
     </div>
     <!-- /.form-box -->
@@ -67,6 +53,23 @@
 <!-- /.register-box -->
 
 <%@ include file="../include/plugin_js.jsp" %>
+<script type="text/javascript">
+ var check = 0;
+ $(function() {
+	
+	 $(#check).click(function() {
+		var user_id = $(#user_id).val();
+		
+		$ajax({
+			type: 'POST',
+			data: user_id,
+			dataType
+		});
+	});
+	
+ });
+
+</script>
 <script>
 	$(document).ready(function () {
         $('input').iCheck({

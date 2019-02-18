@@ -5,14 +5,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.board.domain.UserVO;
 import org.board.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.util.WebUtils;
 
@@ -33,6 +29,7 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 		if(loginCookie != null) {
 			UserVO vo = service.checkLoginBefore(loginCookie.getValue());
 			if(vo != null) httpSession.setAttribute("login", vo);
+			logger.info("user login with cookie");
 		}
 		return true;
 	}

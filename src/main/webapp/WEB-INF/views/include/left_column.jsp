@@ -38,10 +38,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">포트폴리오</li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-folder"></i> 
-                	<span>Duck Hunts</span>
-                </a>
-                
+                               
                 <a href="#"><i class="fa fa-folder"></i> <span>Spring Board</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -52,10 +49,7 @@
                     <li><a href="${path}/board/paging/list"><i class="fa fa-pencil"></i> 페이징 게시판 </a></li>
                     <li><a href="${path}/board/paging/search/list"><i class="fa fa-pencil"></i> 최종 게시판 </a></li>
                 </ul>
-                <a href="#"><i class="fa fa-folder"></i> 
-                	<span>JS To Do List</span>
-                </a>
-                
+
             </li>
            
 
