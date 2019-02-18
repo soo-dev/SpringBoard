@@ -28,9 +28,9 @@
 	<h3>게시물 READ 화면입니다.</h3>
 	<img src="https://user-images.githubusercontent.com/46646408/52951006-0b6fe580-33c4-11e9-8174-e36e8604d111.PNG">
 	<h3>게시물 READ 중 댓글 화면입니다.</h3>
-	<p>로그인 했을 때는 바로 댓글을 달 수 있지만, 로그인 하지 않았을 시에는 다른 화면을 띄어 로그인을 유도합니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52951024-10349980-33c4-11e9-99b3-be49f8b73885.PNG">
 	<img src="https://user-images.githubusercontent.com/46646408/52951025-10349980-33c4-11e9-9619-74693694ff82.PNG">
+	<p>로그인 했을 때는 바로 댓글을 달 수 있지만, 로그인 하지 않았을 시에는 다른 화면을 띄어 로그인을 유도합니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52953945-38c09180-33cc-11e9-803c-b56dbe578318.PNG">
 	<h3>게시물 댓글 수정화면입니다.</h3>
 	<img src="https://user-images.githubusercontent.com/46646408/52951001-09a62200-33c4-11e9-9d2d-6e2ea13288be.PNG">
