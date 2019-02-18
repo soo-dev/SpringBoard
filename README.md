@@ -20,10 +20,6 @@
 	<img src="https://user-images.githubusercontent.com/46646408/52951019-0f036c80-33c4-11e9-9805-d42dbe1191a2.PNG">
 	<p>게시물 CREATE 화면입니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52951020-0f9c0300-33c4-11e9-8fad-6bb78351b3bb.PNG">
-	<p>게시물 CREATE 화면입니다.</p>
-	<img src="https://user-images.githubusercontent.com/46646408/52951020-0f9c0300-33c4-11e9-8fad-6bb78351b3bb.PNG">
-	<p>게시물 CREATE 화면입니다.</p>
-	<img src="https://user-images.githubusercontent.com/46646408/52951020-0f9c0300-33c4-11e9-8fad-6bb78351b3bb.PNG">
 	<img src="https://user-images.githubusercontent.com/46646408/52951021-0f9c0300-33c4-11e9-9523-d68f5dd632f7.PNG">
 	<p>게시물 LIST 화면입니다.</p>
 	<img src="https://user-images.githubusercontent.com/46646408/52951023-10349980-33c4-11e9-9429-84f988bcd556.PNG">
