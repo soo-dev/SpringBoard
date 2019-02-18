@@ -10,8 +10,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginAfterInterceptor extends HandlerInterceptorAdapter {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginAfterInterceptor.class);
-	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

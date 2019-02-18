@@ -1,7 +1,6 @@
 package org.board.persistence;
 
 import java.util.Date;
-
 import org.board.domain.LoginDTO;
 import org.board.domain.UserVO;
 
@@ -14,5 +13,6 @@ public interface UserDAO {
 	public void keepLogin(String user_id, String session_id, Date session_limit) throws Exception;
 	
 	public UserVO checkUserWithSessionKey(String value) throws Exception;
+
 	
 }

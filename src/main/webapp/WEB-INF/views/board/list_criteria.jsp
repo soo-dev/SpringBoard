@@ -96,7 +96,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		alert("게시글 삭제 완료");
 	}
 
-	
 </script>
 <script>
 $(document).ready(function () {

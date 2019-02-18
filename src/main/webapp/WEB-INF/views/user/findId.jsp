@@ -15,29 +15,21 @@
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">회원 정보 페이지</p>
+        <p class="login-box-msg">아이디 찾기</p>
         <input type="hidden" name = "user_id" value="${ login.user_id }">
 
-        <form action="${path}/user/infoPOST" method="post" id="myForm">
-            <div class="form-group has-feedback">
-                <p>아이디 </p><input type="text" name="user_id" class="form-control" value="${ login.user_id }" readonly="readonly">
-                
-            </div>
-            <div class="form-group has-feedback">
-                <p>닉네임 </p><input type="text" name="user_name" class="form-control" value="${ login.user_name }" readonly="readonly">
-                               
-            </div>
-            <div class="form-group has-feedback">
-                <p>이메일 </p><input type="email" name="user_email" class="form-control" value = "${ login.user_email }" readonly="readonly">
-            </div>
-          
-            <div class="row">
-                <div class="col-xs-8">
-                   <a href="/board/paging/search/list">게시판으로 돌아가기</a>
-                </div>
-               
-            </div>
-        </form>
+        <form action="${path}/user/findId" method="post" id="myForm">
+
+				<div class="form-group has-feedback">
+					<p>이메일</p>
+					<input type="email" name="user_email" class="form-control"><br />
+				<button type="submit" id=findBtn
+							class="btn btn-primary btn-block btn-flat">이메일 확인</button>
+					
+				</div>
+
+
+			</form>
     </div>
     <!-- /.form-box -->
 </div>
@@ -46,8 +38,6 @@
 <%@ include file="../include/plugin_js.jsp" %>
 <script>
 
-	
-	
 	$(document).ready(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',

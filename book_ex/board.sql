@@ -63,3 +63,6 @@ CREATE TABLE tb_user(
 )
 
 ALTER TABLE tb_reply CHANGE bno b_no int(11) NOT NULL DEFAULT '0'
+
+
+

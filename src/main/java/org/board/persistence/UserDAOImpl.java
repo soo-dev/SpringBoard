@@ -50,4 +50,5 @@ public class UserDAOImpl implements UserDAO {
 		return session.selectOne(NAMESPACE + ".checkUserWithSessionKey", value);
 	}
 
+
 }

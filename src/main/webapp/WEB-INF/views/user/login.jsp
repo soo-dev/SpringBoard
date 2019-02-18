@@ -9,7 +9,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="${path}/">
+         <a href="${path}/board/paging/search/list">
             <b>Sooyoung's</b><br /> MVC-BOARD
         </a>
     </div>
@@ -42,17 +42,9 @@
                 </div>
             </div>
         </form>
-
-        <div class="social-auth-links text-center">
-            <p>- 또는 -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-                <i class="fa fa-facebook"></i> 페이스북 계정으로 로그인
-            </a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-                <i class="fa fa-google-plus"></i> 구글 계정으로 로그인
-            </a>
-        </div>
-		<a href="#">비밀번호 찾기</a><br />
+<!-- 
+        <a href="/user/findId">아이디 찾기</a><br />
+		<a href="/user/findPW">비밀번호 찾기</a><br /> -->
         <a href="${path}/user/register" class="text-center">회원가입</a>
     </div>
     <!-- /.form-box -->

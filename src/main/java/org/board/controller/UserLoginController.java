@@ -1,6 +1,6 @@
 package org.board.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 
 import java.util.Date;
 
@@ -9,12 +9,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.board.domain.LoginDTO;
 import org.board.domain.UserVO;
 import org.board.service.UserService;
 import org.mindrot.jbcrypt.BCrypt;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +28,12 @@ public class UserLoginController {
 	@Inject
 	private UserService service;
 	
-	
+	// 내 프로필 페이지
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info() throws Exception {
+		return "/user/info";
+	}
+
 	
 	// 로그인 페이지
 	@RequestMapping(value="/login", method = RequestMethod.GET)

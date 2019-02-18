@@ -82,6 +82,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	</div>
 	<!-- ./wrapper -->
 	<%@ include file="../../include/plugin_js.jsp"%>
+<script>
+
+	var result = "${msg}";
+	
+	if (result == "regSuccess") {
+		alert("게시글 등록 완료");
+	} else if (result == "modSuccess") {
+		alert("게시글 수정 완료");
+	} else if (result == "delSuccess") {
+		alert("게시글 삭제 완료");
+	}
+
+	
+</script>
 
 <script>
 
@@ -108,8 +122,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		}); */
 		
 		$(".delBtn").on("click", function() {
-			formObj.attr("action", "/board/paging/delete");
-			formObj.submit();
+			var con_test = confirm("정말로 삭제하시겠습니까?");
+			if(con_test == true){
+				formObj.attr("action", "/board/paging/delete");
+				formObj.submit();
+			}
+			else if(con_test == false){
+			  	alert('삭제를 취소합니다.');
+			}
+			
 		}); 
 		
 		/* $(".listBtn").on("click", function() {

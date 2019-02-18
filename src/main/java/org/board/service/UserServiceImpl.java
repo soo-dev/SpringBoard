@@ -3,7 +3,6 @@ package org.board.service;
 import java.util.Date;
 
 import javax.inject.Inject;
-
 import org.board.domain.LoginDTO;
 import org.board.domain.UserVO;
 import org.board.persistence.UserDAO;
@@ -39,5 +38,6 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.checkUserWithSessionKey(value);
 	}
+
 
 }

@@ -54,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								</div>
 								<div class="form-group">
 									<label for="content">내용</label>
-									<textarea class="form-control" id="content" name="content" rows="30" style="resize: none;">${ board.content }</textarea>
+									<textarea class="form-control" id="content" name="content" rows=18" style="resize: none;">${ board.content }</textarea>
 								</div>
 								<div class="form-group">
 									<label for="writer">작성자</label>
